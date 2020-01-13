@@ -38,7 +38,6 @@ public class OTPActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
         authVerificationId = getIntent().getStringExtra("AuthCredentials");
-
         init();
         mVerifyOtpButn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +47,7 @@ public class OTPActivity extends AppCompatActivity {
                     mOtpFeedback.setText("please enter OTP to continue..");
                     mOtpFeedback.setVisibility(View.VISIBLE);
                 } else {
-
+                    mOtpFeedback.setText("working....");
                     mOtpProgess.setVisibility(View.VISIBLE);
                     mOtpFeedback.setEnabled(false);
 

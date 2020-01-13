@@ -49,9 +49,10 @@ public class LoginActiivty extends AppCompatActivity {
                 String completenumber = "+" + countrycode + " " + phonenumber;
 
                 if (countrycode.isEmpty() || phonenumber.isEmpty()) {
-                    mloginformfeedback.setText("please fill the form to continue..");
                     mloginformfeedback.setVisibility(View.VISIBLE);
+                    mloginformfeedback.setText("please fill the form to continue..");
                 } else {
+                    mloginformfeedback.setText("working...");
                     mloginProgress.setVisibility(View.VISIBLE);
                     motpButton.setEnabled(false);
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(completenumber, 60, TimeUnit.SECONDS, LoginActiivty.this, mcallbacks);
@@ -69,7 +70,7 @@ public class LoginActiivty extends AppCompatActivity {
             public void onVerificationFailed(FirebaseException e) {
                 mloginformfeedback.setText("verification failed,please try again..");
                 mloginformfeedback.setVisibility(View.VISIBLE);
-                mloginProgress.setVisibility(View.INVISIBLE);
+                mloginProgress.setVisibility(View.VISIBLE);
                 motpButton.setEnabled(true);
             }
 
